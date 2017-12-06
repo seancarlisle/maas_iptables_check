@@ -1,0 +1,19 @@
+type              : agent.plugin
+label             : "iptables_check--{{ inventory_hostname }}"
+period            : "60"
+timeout           : "30"
+disabled          : "false"
+details     :
+    file    : run_plugin_in_venv.sh
+    args    : ["/usr/lib/rackspace-monitoring-agent/plugins/iptables_check.py"]
+alarms:
+    iptables_status :
+        label                   : iptables_check--{{ inventory_hostname }}
+        notification_plan_id    : "npManaged"
+        disabled                : false
+        criteria                : |
+            :set consecutiveCount=3
+            if (metric["iptables_status"] != 1) {
+                return new AlarmStatus(CRITICAL, "Security Groups are not enforcing");
+            }
+            return new AlarmStatus(OK, "Security Groups are enforcing");
