@@ -36,10 +36,10 @@ def main():
          iptables_exist = True
 
    if bridge_sysctl == True and iptables_exist == True:
+      metric_bool('iptables_status', True, m_name='iptables_active')
       status_ok(m_name='iptables_active')
    else:
-     # status_err('iptables are not active', m_name='iptables_active')
-      status('error', 'iptables are not active') #, force_print=True)
+      metric_bool('iptables_status', False, m_name='iptables_active')
 
    metric('bridge-nf-call-arptables', 'int64',
            bridge_param_metrics['bridge-nf-call-arptables'])
