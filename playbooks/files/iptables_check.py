@@ -32,7 +32,7 @@ def main():
 
    iptables_exist = False
    for rule in iptables_rules:
-      if "linuxbri" in rule:
+      if "DROP" in rule:
          iptables_exist = True
 
    if bridge_sysctl == True and iptables_exist == True:
