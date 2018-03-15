@@ -42,11 +42,11 @@ def main():
       metric_bool('iptables_status', False, m_name='iptables_active')
 
    metric('bridge-nf-call-arptables', 'int64',
-           bridge_param_metrics['bridge-nf-call-arptables'])
+           bridge_param_metrics.get('bridge-nf-call-arptables',0))
    metric('bridge-nf-call-iptables', 'int64',
-           bridge_param_metrics['bridge-nf-call-iptables'])
+           bridge_param_metrics.get('bridge-nf-call-iptables',0))
    metric('bridge-nf-call-ip6tables', 'int64',
-           bridge_param_metrics['bridge-nf-call-ip6tables'])
+           bridge_param_metrics.get('bridge-nf-call-ip6tables',0))
 
 
 if __name__ == '__main__':
