@@ -30,10 +30,10 @@
         owner: "root"
         group: "root"
         mode: "0644"
-      vars:
-        iptables_check_period: 60
-        iptables_check_timeout: 45
     - name: Restart rackspace-monitoring-agent
       service:
         name: rackspace-monitoring-agent
         state: restarted
+  vars:
+    iptables_check_period: 60
+    iptables_check_timeout: 45
