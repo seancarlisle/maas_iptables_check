@@ -1,7 +1,7 @@
 type              : agent.plugin
 label             : "iptables_check--{{ inventory_hostname }}"
-period            : "60"
-timeout           : "30"
+period            : "iptables_check_period | default(60)"
+timeout           : "iptables_check_timeout | default(30)"
 disabled          : "false"
 details     :
     file    : run_plugin_in_venv.sh
