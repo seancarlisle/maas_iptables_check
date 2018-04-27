@@ -35,5 +35,5 @@
         name: rackspace-monitoring-agent
         state: restarted
   vars:
-    iptables_check_period: 60
-    iptables_check_timeout: 45
+    iptables_check_period: 120
+    iptables_check_timeout: 60
