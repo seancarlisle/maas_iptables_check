@@ -26,7 +26,7 @@ def main():
    # Check that iptables rules are in place
    iptables_rules = ''
    try:
-      iptables_rules = str(subprocess.check_output(['iptables','-wL'])).split('\n')
+      iptables_rules = str(subprocess.check_output(['iptables-save'])).split('\n')
    except Exception as e:
       status('error',str(e),force_print=False)
 
