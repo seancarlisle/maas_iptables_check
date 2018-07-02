@@ -36,6 +36,7 @@ def main():
    # There are instances on this host. Verify appropriate sysctl settings and iptables rules
    else:
       try:
+         bridge_sysctl = True
          for param in bridge_params:
             bridge_param_metrics[param] = str(subprocess.check_output(['cat','/proc/sys/net/bridge/' + param])).rstrip('\n')
             if bridge_param_metrics[param] != "1":
